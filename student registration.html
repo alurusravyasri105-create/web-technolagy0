@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <marquee>
+    <title>Student Registration Form</title>
+    </marquee>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<style>
+        body {
+            background-color: rgb(168, 114, 122); /* Sets color for the whole page */
+            margin: 10;                    /* Removes white borders on the edges */
+            padding: 5;
+        }
+    </style>
+    <div class="form-container">
+        <h2>Student Registration Form</h2>
+        <form action="/submit-registration" method="POST">
+            
+            <!-- Personal Details -->
+            <fieldset>
+                <legend>Personal Information</legend>
+                
+                <div class="form-group">
+                    <label for="first-name">First Name:</label>
+                    <input type="text" id="first-name" name="firstName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="last-name">Last Name:</label>
+                    <input type="text" id="last-name" name="lastName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Gender:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="gender" value="male" required> Male</label>
+                        <label><input type="radio" name="gender" value="female"> Female</label>
+                        <label><input type="radio" name="gender" value="other"> Other</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Contact Details -->
+            <fieldset>
+                <legend>Contact Information</legend>
+
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="example@school.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="1234567890" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Permanent Address:</label>
+                    <textarea id="address" name="address" rows="3" required></textarea>
+                </div>
+            </fieldset>
+
+            <!-- Academic Details -->
+            <fieldset>
+                <legend>Academic Information</legend>
+
+                <div class="form-group">
+                    <label for="course">Course/Program Applied For:</label>
+                    <select id="course" name="course" required>
+                        <option value="">-- Select a Course --</option>
+                        <option value="cs">Computer Science</option>
+                        <option value="ba">Business Administration</option>
+                        <option value="eng">Engineering</option>
+                        <option value="art">Fine Arts</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="prev-school">Previous School/College Name:</label>
+                    <input type="text" id="prev-school" name="prevSchool" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="gpa">Previous GPA/Marks (%):</label>
+                    <input type="number" id="gpa" name="gpa" step="0.01" min="0" max="100" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="start-date">Expected Start Term:</label>
+                    <input type="month" id="start-date" name="startDate" required>
+                </div>
+            </fieldset>
+
+            <button type="submit" class="submit-btn">Register Student</button>
+        </form>
+    </div>
+
+</body>
+</html>
