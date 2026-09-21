@@ -1,19 +1,567 @@
 <!DOCTYPE html>
 <html>
+<head>
+
+    <title>MRDU Campus Connect</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: #f3df9b;
+            color: #211f1c;
+            font-family: "Trebuchet MS", Arial, sans-serif;
+        }
+
+        .page {
+            width: 94%;
+            margin: 18px auto;
+            background-color: #fff3cf;
+            border: 4px solid #211f1c;
+            box-shadow: 10px 10px 0px #211f1c;
+        }
+
+
+        /* ---------------- NAVBAR ---------------- */
+
+        nav {
+            height: 72px;
+            background-color: #ffb83f;
+            border-bottom: 4px solid #211f1c;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 28px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #211f1c;
+            font-weight: bold;
+            margin-left: 28px;
+            padding: 8px 10px;
+        }
+
+        nav a:hover {
+            background-color: #fff3cf;
+            border: 2px solid #211f1c;
+        }
+
+
+        /* ---------------- HERO ---------------- */
+
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 25px 20px 25px;
+            background-color: #fff0bd;
+        }
+
+        .university {
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-top: 3px;
+        }
+
+        .hero h1 {
+            font-size: 68px;
+            line-height: 0.9;
+            margin: 12px 0;
+
+            color: #ffdc55;
+
+            text-shadow:
+                4px 4px 0px #211f1c,
+                8px 8px 0px #ff665c;
+        }
+
+        .hero h1 span {
+            color: #ff735f;
+        }
+
+        .hero p {
+            font-size: 21px;
+            font-weight: bold;
+            margin: 12px;
+        }
+
+
+        /* ---------------- DECORATIONS ---------------- */
+
+        .star {
+            position: absolute;
+            font-size: 38px;
+        }
+
+        .star-left {
+            left: 18%;
+            top: 55px;
+        }
+
+        .star-right {
+            right: 8%;
+            top: 35px;
+        }
+
+        .lines-left {
+            position: absolute;
+            left: 8%;
+            top: 45px;
+            font-size: 35px;
+            transform: rotate(-20deg);
+        }
+
+        .lines-right {
+            position: absolute;
+            right: 6%;
+            bottom: 45px;
+            font-size: 35px;
+            transform: rotate(20deg);
+        }
+
+
+        /* ---------------- SPEECH BUBBLE ---------------- */
+
+        .bubble {
+            display: inline-block;
+
+            background-color: white;
+
+            border: 4px solid #211f1c;
+            border-radius: 45px;
+
+            padding: 15px 28px;
+
+            font-weight: bold;
+
+            box-shadow: 6px 7px 0px #a98bea;
+
+            transform: rotate(-2deg);
+        }
+
+
+        /* ---------------- SECTION TITLE ---------------- */
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin: 24px 10px 20px;
+        }
+
+
+        /* ---------------- CARDS ---------------- */
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+
+            padding: 0 30px 28px;
+
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 31%;
+            min-width: 280px;
+            min-height: 245px;
+
+            padding: 22px;
+
+            border: 4px solid #211f1c;
+
+            box-shadow: 8px 8px 0px #211f1c;
+
+            transition: 0.3s;
+
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-7px) rotate(-1deg);
+        }
+
+        .campus {
+            background-color: #ffaaa3;
+        }
+
+        .study {
+            background-color: #afe0c0;
+        }
+
+        .idea {
+            background-color: #acd1f2;
+        }
+
+
+        /* CARD ICON */
+
+        .icon {
+            font-size: 48px;
+            float: left;
+            margin-right: 15px;
+            margin-bottom: 5px;
+        }
+
+        .card h2 {
+            font-size: 30px;
+            margin: 8px 0 14px;
+        }
+
+        .card p {
+            font-size: 16px;
+            line-height: 1.45;
+            font-weight: 500;
+        }
+
+
+        /* CARD DECORATION */
+
+        .card::after {
+            content: "〰";
+            position: absolute;
+            right: 18px;
+            top: 10px;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+
+        /* ---------------- BUTTON ---------------- */
+
+        .card a {
+            display: inline-block;
+
+            background-color: #211f1c;
+            color: white;
+
+            text-decoration: none;
+
+            padding: 10px 18px;
+
+            font-weight: bold;
+
+            margin-top: 5px;
+        }
+
+        .card a:hover {
+            background-color: white;
+            color: #211f1c;
+        }
+
+
+        /* ---------------- BOTTOM MESSAGE ---------------- */
+
+        .message {
+            margin: 0 28px 25px;
+
+            padding: 20px;
+
+            background-color: #ffe275;
+
+            border: 3px dashed #211f1c;
+
+            text-align: center;
+        }
+
+        .message h2 {
+            font-size: 29px;
+            margin: 5px;
+        }
+
+        .message p {
+            font-weight: bold;
+            margin: 8px;
+        }
+
+
+        /* ---------------- FOOTER ---------------- */
+
+        footer {
+            background-color: #211f1c;
+            color: white;
+
+            text-align: center;
+
+            padding: 18px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+
+        /* ---------------- MOBILE ---------------- */
+
+        @media (max-width: 900px) {
+
+            nav {
+                height: auto;
+                flex-direction: column;
+                padding: 15px;
+                gap: 10px;
+            }
+
+            nav a {
+                margin: 4px;
+            }
+
+            .hero h1 {
+                font-size: 52px;
+            }
+
+            .card {
+                width: 90%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
 <body>
 
-  <h1> uNANImous</h1>
-  <!-- This line adds the image -->
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpXFKKQjixIWNQW5Wmg88sL0pKuVK0oZJebYvrxGAfAA&s=10"
-     alt="naniii!" width="300">
 
-  <p>The <b>ganta naveen is know as</b> natural star.</p>
+<div class="page">
 
-  <h3>Why he is special:</h3>
-  <ul>
-    <li>he stays handsome and pure.</li>
-    <li>he symbolizes humour, honor, and humble.</li>
-  </ul>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            MRDU × CAMPUS CONNECT
+        </div>
+
+        <div>
+
+            <a href="mywebpage.html">HOME</a>
+
+            <a href="campus.html">MY CAMPUS</a>
+
+            <a href="study.html">STUDY BUDDY</a>
+
+            <a href="about.html">ABOUT</a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="star star-left">✦</div>
+
+        <div class="star star-right">☆</div>
+
+        <div class="lines-left">⌁</div>
+
+        <div class="lines-right">〰</div>
+
+
+        <div class="university">
+
+            MALLA REDDY DEEMED TO BE UNIVERSITY · TIRUPATI
+
+        </div>
+
+
+        <h1>
+
+            CAMPUS<br>
+
+            <span>CONNECT!</span>
+
+        </h1>
+
+
+        <p>
+
+            Your campus. Your studies. Your space.
+
+        </p>
+
+
+        <div class="bubble">
+
+            WAIT... WHERE DO I FIND EVERYTHING? 🤔
+
+        </div>
+
+    </section>
+
+
+
+    <!-- TITLE -->
+
+    <h2 class="section-title">
+
+        DON'T JUST SURVIVE COLLEGE...
+
+        <br>
+
+        EXPLORE IT!
+
+    </h2>
+
+
+
+    <!-- THREE CARDS -->
+
+    <section class="cards">
+
+
+        <!-- MY CAMPUS -->
+
+        <div class="card campus">
+
+            <div class="icon">🏫</div>
+
+            <h2>MY CAMPUS</h2>
+
+            <p>
+
+                Lost? Looking for a department,
+                library, club or important campus
+                information?
+
+            </p>
+
+            <p>
+
+                We've got you.
+
+            </p>
+
+            <a href="campus.html">
+
+                LET'S EXPLORE →
+
+            </a>
+
+        </div>
+
+
+
+        <!-- STUDY BUDDY -->
+
+        <div class="card study">
+
+            <div class="icon">📚</div>
+
+            <h2>STUDY BUDDY</h2>
+
+            <p>
+
+                Notes everywhere?
+                Exams coming?
+                Timetable confusing?
+
+            </p>
+
+            <p>
+
+                Let's make studying easier.
+
+            </p>
+
+            <a href="study.html">
+
+                LET'S STUDY →
+
+            </a>
+
+        </div>
+
+
+
+        <!-- OUR IDEA -->
+
+        <div class="card idea">
+
+            <div class="icon">💡</div>
+
+            <h2>OUR IDEA</h2>
+
+            <p>
+
+                Why did we create Campus
+                Connect? What's the problem
+                we're solving for students?
+
+            </p>
+
+            <a href="about.html">
+
+                SEE THE STORY →
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- BOTTOM MESSAGE -->
+
+    <section class="message">
+
+        <h2>
+
+            ONE CAMPUS. ONE PLACE. LESS CONFUSION.
+
+        </h2>
+
+        <p>
+
+            Campus information + Academic support
+            = A smarter student experience.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+
+            <strong>CAMPUS CONNECT</strong>
+
+        </p>
+
+        <p>
+
+            Made for the students of MRDU Tirupati
+
+        </p>
+
+    </footer>
+
+
+</div>
+
 
 </body>
 </html>
